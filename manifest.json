@@ -1,8 +1,8 @@
 {
-  "name": "PrevYou — YouTube Thumbnail Previewer",
-  "description": "Preview your video thumbnail and title on YouTube home page or subscription feed.",
-  "version": "1.2",
-  "manifest_version": 2,
+  "name": "Prevify — Spotify Artwork Previewer",
+  "description": "Preview your track artwork and title on Spotify home page.",
+  "version": "0.1",
+  "manifest_version": 1,
   "permissions": ["storage", "activeTab", "tabs"],
   "browser_action": {
     "default_popup": "popup-wrapper.html",
