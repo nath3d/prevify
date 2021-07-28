@@ -1,5 +1,10 @@
 var overlay = null,
     frame = null;
+	mainSection = '._6c8744e2ec860b2c766f3d26cc5e1969-scss'
+	cardSection = '._3802c04052af0bb5d03956299250789e-scss'
+	cardTitle = '._3cfbde1fd9fecaaa77935664eeb6e346-scss, ._45331a50e3963ecc26575a06f1fd5292-scss'
+	cardArtist = '._3cfbde1fd9fecaaa77935664eeb6e346-scss a'
+	cardArtwork = '._0de6546a8c9a0ed2cc34a83aa2c4a47a-scss, ._810778d3df9b3dbdff12618620765fdf-scss'
 
 window.__PREVYOU_LOADED = true
 
@@ -22,7 +27,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 function showPopup() {
-    if (document.querySelector(".py-popup-overlay")) {
+    
+	if (document.querySelector(".py-popup-overlay")) {
         hidePopup();
         return false;
     }
@@ -46,73 +52,42 @@ function showPopup() {
 function hidePopup() {
     // Remove EventListener
     overlay.removeEventListener("click", hidePopup);
-
     // Remove the elements:
     document.querySelector(".py-popup-overlay").remove();
-
     // Clean up references:
     overlay = null;
     frame = null;
 }
 
 function findCard() {
+	
     // Select a random a card in between a range
     let cardPositionIndex = 0
-	console.log(document)
-	const activeScreen = document.querySelector('._6424f268be3505ebab663700d60ebaa6-scss._7321ea8cd8e8baded34054347ab0be48-scss')
-	
-    // Target only ytd-rich-item-renderer element and not ytd-rich-item-renderer with id content for the main page
-    let cards = activeScreen.querySelectorAll('._3802c04052af0bb5d03956299250789e-scss')
-	console.log(cards)
-    /*if (cards.length === 0) {
-        cards = activeScreen.getElementsByTagName('ytd-grid-video-renderer')
-    }
-    if (cards.length === 0) {
-        cards = activeScreen.getElementsByTagName('ytd-compact-video-renderer')
-    }*/
+	const activeScreen = document.querySelector(mainSection)
+    // Target only card section element with id content for the main page
+    let cards = activeScreen.querySelectorAll(cardSection)
 
     chrome.storage.local.get('thumbnailProperties', (result) => {
 
         if (result.thumbnailProperties.shuffle) {
             const min = 1
-            const max = 12
+            const max = cards.length - 1
             cardPositionIndex = Math.floor(Math.random() * (max - min + 1)) + min
         }
         let target = cards[cardPositionIndex]
-		console.log(target)
-        const thumbnail = target.querySelector('._0de6546a8c9a0ed2cc34a83aa2c4a47a-scss, ._810778d3df9b3dbdff12618620765fdf-scss')
-		console.log(thumbnail)
+		
+		//Track artwork
+        const thumbnail = target.querySelector(cardArtwork)
         thumbnail.src = result.thumbnailProperties.thumbnail
-
-        const title = target.querySelector('._3cfbde1fd9fecaaa77935664eeb6e346-scss, ._45331a50e3963ecc26575a06f1fd5292-scss')
-		console.log(thumbnail)
-        let channelName = target.querySelector('._3cfbde1fd9fecaaa77935664eeb6e346-scss a')
-        /*if (!channelName) {
-            channelName = target.querySelector('.ytd-channel-name')
-        }*/
-
-        title.textContent = result.thumbnailProperties.title
-        channelName.textContent = result.thumbnailProperties.channelName
-
-        /*// Channel's thumbnail management
-        let channelThumbnailFromExtension = result.thumbnailProperties.channelThumbnail
-        let channelThumbnailFromYoutube = document.querySelector('#avatar-btn .yt-img-shadow')
-
-        // By default, we get the image from the extension
-        let channelThumbnailValue = channelThumbnailFromExtension
-
-        // But if there's no image then we try to get the real YT thumbnail
-        // => Thumbnail from YT is null if not logged in so we check for it
-        if (channelThumbnailValue == null && channelThumbnailFromYoutube != null) {
-            channelThumbnailValue = channelThumbnailFromYoutube.src
-        }
-
-        // Finally, set the channel's thumbnail in the preview
-        let avatar = target.querySelector('#avatar-link img')
-        if (avatar) {
-            avatar.src = channelThumbnailValue
-        }*/
-
+		//Track title
+        const title = target.querySelector(cardTitle)
+		title.textContent = result.thumbnailProperties.title
+		//Track artist
+        let artist = target.querySelector(cardArtist)
+        artist.textContent = result.thumbnailProperties.channelName
+		//Scroll down to the card
+		cards[cardPositionIndex].scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
+		
         hidePopup()
     })
 }

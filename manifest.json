@@ -2,7 +2,7 @@
   "name": "Prevify — Spotify Artwork Previewer",
   "description": "Preview your track artwork and title on Spotify home page.",
   "version": "0.1",
-  "manifest_version": 1,
+  "manifest_version": 2,
   "permissions": ["storage", "activeTab", "tabs"],
   "browser_action": {
     "default_popup": "popup-wrapper.html",

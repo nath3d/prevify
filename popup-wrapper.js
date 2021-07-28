@@ -1,5 +1,5 @@
 chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-    if (tabs[0] === undefined || !tabs[0].url.startsWith('https://')) {
+    if (tabs[0] === undefined || !tabs[0].url.startsWith('https://open.spotify.com')) {
         const errorMessageSpan = document.querySelector('#extErrorMessage')
         errorMessageSpan.textContent = 'You need to be on Spotify!'
         return
