@@ -22,4 +22,5 @@ Produced by La Swellerie :
 Inspired by benjamincode :
 - [Youtube : Benjamin Code](https://www.youtube.com/channel/UCLOAPb7ATQUs_nDs9ViLcMw)
 - [Twitch : benjamincode](https://www.twitch.tv/benjamincode)
-- [Twitter : @benjamincodeYT](https://twitter.com/benjamincode)
+- [Twitter : @benjamincode](https://twitter.com/benjamincode)
+- [Orginal open soruce code](https://github.com/bdebon/youtube-thumbnail-tester-chrome-extension)
