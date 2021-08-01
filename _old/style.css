@@ -120,8 +120,8 @@ body {
 
 .py-container {
     position: relative;
-    width: 300px;
-    height: 680px; /* had to fix the height because object height auto not working */
+    width: 400px;
+    height: 630px; /* had to fix the height because object height auto not working */
     border: none;
     background-color: var(--bg);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -146,7 +146,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
 
 .py-header-eyes {
@@ -321,8 +321,8 @@ input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 256px;
-    height: 256px;
+    width: 100%;
+    height: 200px;
     background-color: var(--btnBg);
     border-radius: 4px;
     overflow: hidden;
@@ -410,7 +410,7 @@ input {
 }
 
 /* Random position */
-.random-switch {display: flex; margin-bottom: 18px; margin-top: 24px;}
+.random-switch {display: flex; margin-bottom: 18px;}
 .random-switch.active .py-form-label {color: var(--formText);}
 
 .switch {
