@@ -34,14 +34,7 @@ The main config file is ``.eslintrc.json``
 - [Disallow Unused Variables](https://eslint.org/docs/rules/no-unused-vars)
 
 ## Things to improve
-- [ ] Set "Random position" by default
-- [ ] Set the image ratio to 1:1
 - [ ] Rename/Clean vars
-- [ ] Rework svg colors
-- [ ] Rework avatar artist image
-- [ ] Manage artist image feature
-- [ ] Rework dark mode
-- [ ] Create logo (maybe a vinyl)
 - [ ] Rework animation with the new logo
 
 
