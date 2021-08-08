@@ -4,7 +4,6 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         errorMessageSpan.textContent = 'You need to be on Spotify!'
         return
     }
-
     chrome.tabs.executeScript(tabs[0].id, {
         // showPopup acutally toggles popup here
         code: 'window.__PREVYOU_LOADED ? (showPopup(), true) : false'
@@ -13,13 +12,10 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
             chrome.tabs.executeScript(tabs[0].id, {
                 file: '/content.js'
             })
-
             chrome.tabs.insertCSS(tabs[0].id, {
                 file: '/content.css'
             })
-
         }
-
         window.close();
     });
 });

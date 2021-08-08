@@ -13,10 +13,12 @@ Then you should see the extension was installed
 ## Things to improve
 - [ ] Rename/Clean vars
 - [ ] Rework animation with the new logo
+- [ ] Test and debug
 
 
 ## Credits
-Produced by La Swellerie :
+Produced by lunath from La Swellerie :
+- [Twitter : @lunath__](https://twitter.com/lunath__)
 - [Twitter : @laswellerie](https://twitter.com/laswellerie)
 
 Inspired by benjamincode :
@@ -24,3 +26,8 @@ Inspired by benjamincode :
 - [Twitch : benjamincode](https://www.twitch.tv/benjamincode)
 - [Twitter : @benjamincode](https://twitter.com/benjamincode)
 - [Orginal open soruce code](https://github.com/bdebon/youtube-thumbnail-tester-chrome-extension)
+
+Designed by BastiUi :
+- [Youtube : Basti Ui](https://www.youtube.com/c/BastiUI)
+- [Twitch : Basti Ui](https://www.twitch.tv/bastiui)
+- [Twitter : @bastiui](https://twitter.com/bastiui)

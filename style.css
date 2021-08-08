@@ -5,14 +5,14 @@
 }
 
 :root {
-  --grey: #9FB7A2; /*A7A3C2*/
-  --grey-light: #C9DECE; /*D5CEEA*/
-  --grey-lighter: #EEF5F0; /*F8F5FF*/
-  --black: #172315; /*2A2C40*/
-  --main :#1ED760 ;/*6116FF*/
+  --grey: #9FB7A2;          /*A7A3C2*/
+  --grey-light: #C9DECE;    /*D5CEEA*/
+  --grey-lighter: #EEF5F0;  /*F8F5FF*/
+  --black: #172315;         /*2A2C40*/
+  --main :#1ED760 ;         /*6116FF*/
 
-  --btnColor: #1ED760; /*6116FF*/
-  --btnBorder: #067123; /*24008C*/
+  --btnColor: #1ED760;      /*6116FF*/
+  --btnBorder: #067123;     /*24008C*/
   --bg: #FFFFFF;            /* Dark/Light Mode : */
   --btnBg: #EEF5F0;         /* These custom properties are the colors that change */ /*F8F5FF*/
   --formText: #000000;      /* when we switch from one mode to another */
@@ -331,10 +331,6 @@ input {
     transition: background-color 350ms;
 }
 
-.file-video-thumbnail:focus + .py-form-filelabel,
-.file-video-thumbnail + .py-form-filelabel:hover {
-
-}
 
 .video-fileinput-img {
     position: absolute;
@@ -446,8 +442,6 @@ input {
 input:checked + .slider {background-color: var(--btnColor);}
 input:focus + .slider {box-shadow: 0 0 1px var(--btnColor);}
 input:checked + .slider:before {transform: translateX(16px);}
-
-/* //////// */
 
 .row {
     display: flex;
