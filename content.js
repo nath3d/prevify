@@ -1,10 +1,10 @@
 var overlay = null,
     frame = null,
-	mainSection = '._6c8744e2ec860b2c766f3d26cc5e1969-scss',
-	cardSection = '._3802c04052af0bb5d03956299250789e-scss',
-	cardTitle = '._3cfbde1fd9fecaaa77935664eeb6e346-scss, ._45331a50e3963ecc26575a06f1fd5292-scss',
-	cardArtist = '._3cfbde1fd9fecaaa77935664eeb6e346-scss',
-	cardArtwork = '._0de6546a8c9a0ed2cc34a83aa2c4a47a-scss, ._810778d3df9b3dbdff12618620765fdf-scss';
+	mainSection = '.Root__main-view', //'._6c8744e2ec860b2c766f3d26cc5e1969-scss',
+	cardSection = '.OALAQFKvC7XQOVYpklB4', //'._3802c04052af0bb5d03956299250789e-scss',
+	cardTitle = '.PPveH9n_yqp3k1Zk7rbj, .RTMaUOOWPswmV1oG8f1S', //'._3cfbde1fd9fecaaa77935664eeb6e346-scss, ._45331a50e3963ecc26575a06f1fd5292-scss',
+	cardArtist = '.PPveH9n_yqp3k1Zk7rbj', //'._3cfbde1fd9fecaaa77935664eeb6e346-scss',
+	cardArtwork = '.DeZUaoyaDtLMNKg6osSk, .gQd409_bPb3_EmGGIHZf';//'._0de6546a8c9a0ed2cc34a83aa2c4a47a-scss, ._810778d3df9b3dbdff12618620765fdf-scss';
 
 window.__PREVYOU_LOADED = true
 
@@ -66,28 +66,43 @@ function findCard() {
         let cardPositionIndex = 0
         const activeScreen = document.querySelector(mainSection)
         // Target only card section element with id content for the main page
-        let cards = activeScreen.querySelectorAll(cardSection)
-        if (result.thumbnailProperties.shuffle) {
-            const min = 1
-            const max = cards.length - 1
-            cardPositionIndex = Math.floor(Math.random() * (max - min + 1)) + min
-        }
-        let target = cards[cardPositionIndex]
-		//Track artwork
-        const thumbnail = target.querySelector(cardArtwork)
-        if(thumbnail !== null)
-            thumbnail.src = result.thumbnailProperties.thumbnail
-		//Track title
-        const title = target.querySelector(cardTitle)
-        if(title !== null)
-		title.textContent = result.thumbnailProperties.title
-		//Track artist
-        let artist = target.querySelector(cardArtist)
-        if(artist !== null)
-            artist.textContent = result.thumbnailProperties.channelName
-		//Scroll down to the card
-		cards[cardPositionIndex].scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
-        hidePopup()
+        if(activeScreen !== null)
+        {
+            let cards = activeScreen.querySelectorAll(cardSection)
+            if(cards == null)
+                console.error('Error with the Spotify artwork extension : ' + cardSection + ' section not found')
+            if(cards.length == 0)
+                console.error('Error with the Spotify artwork extension : ' + cardSection + ' section not found')
+            if (result.thumbnailProperties.shuffle) {
+                const min = 1
+                const max = cards.length - 1
+                cardPositionIndex = Math.floor(Math.random() * (max - min + 1)) + min
+            }
+            let target = cards[cardPositionIndex]
+            //Track artwork
+            const thumbnail = target.querySelector(cardArtwork)
+            if(thumbnail !== null)
+                thumbnail.src = result.thumbnailProperties.thumbnail
+            else
+                console.error('Error with the Spotify artwork extension : ' + cardArtwork + ' section not found')
+            //Track title
+            const title = target.querySelector(cardTitle)
+            if(title !== null)
+                title.textContent = result.thumbnailProperties.title
+            else
+                console.error('Error with the Spotify artwork extension : ' + cardTitle + ' section not found')
+            //Track artist
+            let artist = target.querySelector(cardArtist)
+            if(artist !== null)
+                artist.textContent = result.thumbnailProperties.channelName
+            else
+                console.error('Error with the Spotify artwork extension : ' + cardArtist + ' section not found')
+            //Scroll down to the card
+            cards[cardPositionIndex].scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
+            hidePopup()
+        }  
+        else
+            console.error('Error with the Spotify artwork extension : ' + mainSection + ' section not found')
     })
 }
 

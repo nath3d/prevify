@@ -98,11 +98,11 @@ function initInputs() {
                 previewVideo.src = videoThumbnail
                 thumbnailInput.classList.add('loaded')
             }
-            channelThumbnailBase64 = storedThumbnail.channelThumbnail
-            if (channelThumbnailBase64) {
-                preview.src = channelThumbnailBase64
-                channelThumbnailInput.classList.add('loaded')
-            }
+            // channelThumbnailBase64 = storedThumbnail.channelThumbnail
+            // if (channelThumbnailBase64) {
+            //     preview.src = channelThumbnailBase64
+            //     channelThumbnailInput.classList.add('loaded')
+            // }
         }
     })
 }
@@ -130,12 +130,12 @@ async function launchScript(shuffle = false) {
                 title: title,
                 channelName: channelName,
                 thumbnail: videoThumbnail,
-                channelThumbnail: channelThumbnailBase64,
+                //channelThumbnail: channelThumbnailBase64,
                 shuffle: shuffle
             }
         })
     } catch (e) {
-        console.error('Error with the Youtube thumbnail extension : ' + e)
+        console.error('Error with the Spotify artwork extension : ' + e)
     }
     window.parent.postMessage({ type: 'find_card' }, '*')
     window.close() // Everything went smooth so we can close the popup to let the user enjoy
