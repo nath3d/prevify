@@ -3,7 +3,6 @@
 let findCardBtn = document.querySelector('.js-find-card')
 let resetBtn = document.querySelector('.js-reset-btn')
 const titleInput = document.querySelector('.js-title-input')
-const channelThumbnailInput = document.querySelector('.js-channel-thumbnail-input')
 const channelNameInput = document.querySelector('.js-channel-name-input')
 const randomButton = document.querySelector('#random')
 const thumbnailVideoDropzone = document.querySelector('.py-label-video-thumbnail')
