@@ -17,9 +17,8 @@ Then you should see the extension was installed
 
 
 ## Credits
-Produced by lunath from La Swellerie :
+Produced by lunath :
 - [Twitter : @lunath__](https://twitter.com/lunath__)
-- [Twitter : @laswellerie](https://twitter.com/laswellerie)
 
 Inspired by benjamincode :
 - [Youtube : Benjamin Code](https://www.youtube.com/channel/UCLOAPb7ATQUs_nDs9ViLcMw)
